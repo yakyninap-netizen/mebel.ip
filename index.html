@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEDIA — стулья и подстолья от производителя</title>
+<meta name="description" content="Стулья и подстолья для кафе, ресторанов и дома. Прямые поставки с фабрики.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --soft:#f3f4f4; --ink:#1c1f21; --muted:#6a7074; --line:#e3e5e6;
+  --accent:#2f4a43; --accent-ink:#ffffff;
+  --r:6px;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#141616; --soft:#1e2121; --ink:#eef0f0; --muted:#9aa1a4; --line:#2c3032; --accent:#9fc2b6; --accent-ink:#10201b; }
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:'Onest',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{font-weight:700;font-size:18px;text-decoration:none;letter-spacing:-.01em}
+nav{display:flex;gap:28px;font-size:15px}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.tel{font-weight:600;text-decoration:none;font-size:15px}
+@media(max-width:760px){nav{display:none}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;padding:72px 0}
+h1{font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-.03em;font-weight:700;max-width:14em}
+.lead{margin-top:22px;color:var(--muted);font-size:18px;max-width:30em}
+.btns{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 26px;border-radius:var(--r);font:600 15px 'Onest',sans-serif;text-decoration:none;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);cursor:pointer}
+.btn:hover{opacity:.9}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink);opacity:1}
+.hero-img{aspect-ratio:4/5;background:var(--soft);border-radius:var(--r);overflow:hidden}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+@media(max-width:860px){.hero{grid-template-columns:1fr;gap:36px;padding:40px 0}.hero-img{aspect-ratio:4/3}}
+
+/* sections */
+section{padding:72px 0}
+h2{font-size:clamp(26px,3.4vw,36px);letter-spacing:-.02em;line-height:1.15}
+.sub{color:var(--muted);margin-top:10px;max-width:36em}
+
+/* catalog */
+.tabs{display:flex;gap:8px;margin:32px 0;flex-wrap:wrap}
+.tab{padding:9px 18px;border:1px solid var(--line);border-radius:99px;background:none;color:var(--ink);font:500 14px 'Onest',sans-serif;cursor:pointer}
+.tab:hover{border-color:var(--ink)}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:32px 24px}
+.card{background:none;border:0;padding:0;text-align:left;font:inherit;color:inherit;cursor:pointer}
+.ph{aspect-ratio:1/1;background:var(--soft);border-radius:var(--r);overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.card:hover .ph img{transform:scale(1.03)}
+.card h3{font-size:16px;font-weight:600;margin-top:14px}
+.card .meta{color:var(--muted);font-size:14px}
+.card .price{font-weight:600;margin-top:4px}
+.ph{position:relative}
+.badge{position:absolute;top:10px;left:10px;background:var(--accent);color:var(--accent-ink);font-size:13px;font-weight:600;padding:4px 10px;border-radius:99px}
+.thumbs{display:flex;gap:8px;flex-wrap:wrap}
+.thumbs button{width:56px;height:56px;padding:0;border:2px solid transparent;border-radius:4px;overflow:hidden;background:var(--soft);cursor:pointer}
+.thumbs button[aria-current="true"]{border-color:var(--accent)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+@media(prefers-reduced-motion:reduce){.ph img{transition:none}}
+
+/* info */
+.soft{background:var(--soft)}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:40px}
+.cols h3{font-size:17px;margin-bottom:8px}
+.cols p{color:var(--muted);font-size:15px}
+@media(max-width:760px){.cols{grid-template-columns:1fr;gap:28px}}
+
+/* contacts */
+.contacts{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.contacts dl{display:grid;gap:18px}
+.contacts dt{color:var(--muted);font-size:14px}
+.contacts dd{font-size:20px;font-weight:600}
+.contacts a{text-decoration:none;border-bottom:1px solid var(--line)}
+.contacts a:hover{border-color:var(--ink)}
+@media(max-width:760px){.contacts{grid-template-columns:1fr;gap:28px}}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:14px}
+
+/* modal */
+dialog{border:0;border-radius:10px;padding:0;max-width:880px;width:calc(100% - 32px);background:var(--bg);color:var(--ink)}
+dialog::backdrop{background:rgba(0,0,0,.55)}
+.m{display:grid;grid-template-columns:1.1fr 1fr}
+.m .ph{border-radius:0;aspect-ratio:auto;min-height:380px;height:100%}
+.m .body{padding:32px;display:flex;flex-direction:column;gap:12px}
+.m h3{font-size:24px;letter-spacing:-.02em}
+.m p{color:var(--muted);font-size:15px}
+.m table{border-collapse:collapse;font-size:14px;width:100%}
+.m td{padding:7px 0;border-bottom:1px solid var(--line)}
+.m td:first-child{color:var(--muted)}
+.close{position:absolute;top:10px;right:12px;border:0;background:var(--bg);color:var(--ink);width:36px;height:36px;border-radius:50%;font-size:20px;cursor:pointer}
+@media(max-width:700px){.m{grid-template-columns:1fr}.m .ph{min-height:0;aspect-ratio:4/3}.m .body{padding:22px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top">SEDIA</a>
+    <nav>
+      <a href="#catalog">Каталог</a>
+      <a href="#terms">Условия</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="tel" href="tel:+70000000000">+7 (000) 000-00-00</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <h1>Стулья и подстолья от производителя</h1>
+      <p class="lead">Мебель для кафе, ресторанов и дома. Работаем напрямую с фабрикой: понятные цены, стабильное качество, поставка в срок.</p>
+      <div class="btns">
+        <a class="btn" href="#catalog">Смотреть каталог</a>
+        <a class="btn ghost" href="#contacts">Связаться</a>
+      </div>
+    </div>
+    <div class="hero-img"><img src="images/hero.jpg" alt="Стул «Лалетта» бордовый на золотых ножках" onerror="this.remove()"></div>
+  </div>
+
+  <section id="catalog" style="padding-top:24px">
+    <div class="wrap">
+      <h2>Каталог</h2>
+      <p class="sub">Нажмите на модель, чтобы увидеть размеры и оставить заявку.</p>
+      <div class="tabs" id="tabs"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="terms" class="soft">
+    <div class="wrap">
+      <h2>Условия работы</h2>
+      <div class="cols">
+        <div><h3>Прямое производство</h3><p>Мебель изготавливает наша фабрика. Без посредников, поэтому цена ниже рыночной.</p></div>
+        <div><h3>Опт и розница</h3><p>Продаём от одной штуки. При заказе партии действует скидка, условия обсуждаем индивидуально.</p></div>
+        <div><h3>Доставка</h3><p>Отправляем по всей России транспортной компанией. Срок и стоимость рассчитаем после заявки.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts">
+    <div class="wrap contacts">
+      <div>
+        <h2>Контакты</h2>
+        <p class="sub">Напишите в WhatsApp или позвоните — ответим в течение рабочего дня. Пришлём каталог, образцы цветов и расчёт доставки.</p>
+      </div>
+      <dl>
+        <div><dt>Телефон</dt><dd><a href="tel:+70000000000">+7 (000) 000-00-00</a></dd></div>
+        <div><dt>WhatsApp</dt><dd><a href="https://wa.me/70000000000" target="_blank" rel="noopener">Написать в WhatsApp</a></dd></div>
+        <div><dt>Почта</dt><dd><a href="mailto:info@example.ru">info@example.ru</a></dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">ИП Фамилия Имя Отчество · ИНН 000000000000 · ОГРНИП 000000000000000</div>
+</footer>
+
+<dialog id="dlg" aria-label="Карточка товара">
+  <button class="close" id="close" aria-label="Закрыть">×</button>
+  <div class="m">
+    <div class="ph"><img id="mImg" alt=""></div>
+    <div class="body">
+      <div class="thumbs" id="mThumbs"></div>
+      <h3 id="mName"></h3>
+      <p id="mDesc"></p>
+      <table id="mSpec"></table>
+      <strong id="mPrice" style="font-size:20px"></strong>
+      <a class="btn" id="mOrder" target="_blank" rel="noopener">Заказать в WhatsApp</a>
+    </div>
+  </div>
+</dialog>
+
+<script>
+/* ============ ЗДЕСЬ МЕНЯЕТЕ ДАННЫЕ ============ */
+const WHATSAPP = "70000000000";   // номер без плюса и пробелов
+
+// category: "Стулья" | "Подстолья" | "Столы"  (можно добавлять свои)
+// img: путь к фото в папке images
+const PRODUCTS = [
+ {
+  "name": "Стул «Лалетта», бордовый",
+  "category": "Стулья",
+  "badge": "Хит продаж",
+  "photos": [
+   "images/laletta-burgundy/1.jpg",
+   "images/laletta-burgundy/2.jpg",
+   "images/laletta-burgundy/3.jpg",
+   "images/laletta-burgundy/4.jpg",
+   "images/laletta-burgundy/5.jpg",
+   "images/laletta-burgundy/6.jpg",
+   "images/laletta-burgundy/7.jpg"
+  ],
+  "price": "Цена по запросу",
+  "desc": "Наш бестселлер. Мягкий стёганый велюр глубокого бордового цвета на золотых ножках. Глубокая посадка, не царапает пол.",
+  "specs": {
+   "Высота": "86 см",
+   "Ширина": "44 см",
+   "Обивка": "Велюр, антивандальная",
+   "Каркас": "Берёзовая фанера, металл",
+   "Цвет": "Бордовый",
+   "Ножки": "Золотые",
+   "Нагрузка": "до 150 кг"
+  }
+ },
+ {
+  "name": "Стул «Лалетта», серый",
+  "category": "Стулья",
+  "badge": "Хит продаж",
+  "photos": [
+   "images/laletta-gray/1.jpg",
+   "images/laletta-gray/2.jpg",
+   "images/laletta-gray/3.jpg",
+   "images/laletta-gray/4.jpg",
+   "images/laletta-gray/5.jpg",
+   "images/laletta-gray/6.jpg"
+  ],
+  "price": "Цена по запросу",
+  "desc": "Та же модель «Лалетта» в сером цвете на золотых ножках.",
+  "specs": {
+   "Высота": "86 см",
+   "Ширина": "44 см",
+   "Обивка": "Велюр, антивандальная",
+   "Каркас": "Берёзовая фанера, металл",
+   "Цвет": "Серый",
+   "Ножки": "Золотые",
+   "Нагрузка": "до 150 кг"
+  }
+ },
+ {
+  "name": "Стул «Лалетта», бежевый",
+  "category": "Стулья",
+  "photos": [
+   "images/laletta-beige/1.jpg",
+   "images/laletta-beige/2.jpg",
+   "images/laletta-beige/3.jpg",
+   "images/laletta-beige/4.jpg",
+   "images/laletta-beige/5.jpg",
+   "images/laletta-beige/6.jpg"
+  ],
+  "price": "Цена по запросу",
+  "desc": "Та же модель «Лалетта» в бежевом цвете на чёрных ножках.",
+  "specs": {
+   "Высота": "86 см",
+   "Ширина": "44 см",
+   "Обивка": "Велюр, антивандальная",
+   "Каркас": "Берёзовая фанера, металл",
+   "Цвет": "Бежевый",
+   "Ножки": "Чёрные",
+   "Нагрузка": "до 150 кг"
+  }
+ },
+ {
+  "name": "Стул «Лалетта», оранжевый",
+  "category": "Стулья",
+  "photos": [
+   "images/laletta-orange/1.jpg",
+   "images/laletta-orange/2.jpg",
+   "images/laletta-orange/3.jpg",
+   "images/laletta-orange/4.jpg",
+   "images/laletta-orange/5.jpg",
+   "images/laletta-orange/6.jpg"
+  ],
+  "price": "Цена по запросу",
+  "desc": "Та же модель «Лалетта» в оранжевом цвете на белых ножках.",
+  "specs": {
+   "Высота": "86 см",
+   "Ширина": "44 см",
+   "Обивка": "Велюр, антивандальная",
+   "Каркас": "Берёзовая фанера, металл",
+   "Цвет": "Оранжевый",
+   "Ножки": "Белые",
+   "Нагрузка": "до 150 кг"
+  }
+ },
+ {
+  "name": "Стул «Лалетта», зелёный",
+  "category": "Стулья",
+  "photos": [
+   "images/laletta-green/1.jpg",
+   "images/laletta-green/2.jpg",
+   "images/laletta-green/3.jpg",
+   "images/laletta-green/4.jpg",
+   "images/laletta-green/5.jpg",
+   "images/laletta-green/6.jpg"
+  ],
+  "price": "Цена по запросу",
+  "desc": "Та же модель «Лалетта» в зелёном цвете на чёрных ножках.",
+  "specs": {
+   "Высота": "86 см",
+   "Ширина": "44 см",
+   "Обивка": "Велюр, антивандальная",
+   "Каркас": "Берёзовая фанера, металл",
+   "Цвет": "Зелёный",
+   "Ножки": "Чёрные",
+   "Нагрузка": "до 150 кг"
+  }
+ },
+ {
+  "name": "Стул-кресло «Версаль»",
+  "category": "Стулья",
+  "photos": [
+   "images/versal/1.jpg",
+   "images/versal/2.jpg",
+   "images/versal/3.jpg",
+   "images/versal/4.jpg",
+   "images/versal/5.jpg",
+   "images/versal/6.jpg"
+  ],
+  "price": "Цена по запросу",
+  "desc": "Мягкое кресло с высокой спинкой-раковиной и подлокотниками. Для кафе, ресторанов и дома.",
+  "specs": {
+   "Высота": "83 см",
+   "Ширина": "60 см",
+   "Обивка": "Велюр",
+   "Нагрузка": "до 150 кг",
+   "Цвета": "Бежевый, графит, серый"
+  }
+ },
+ {
+  "name": "Стул-кресло «Зефир»",
+  "category": "Стулья",
+  "photos": [
+   "images/zefir/1.jpg",
+   "images/zefir/2.jpg",
+   "images/zefir/3.jpg",
+   "images/zefir/4.jpg"
+  ],
+  "price": "Цена по запросу",
+  "desc": "Компактное кресло с округлой спинкой. Мягкое сиденье, ножки на чёрном металлокаркасе.",
+  "specs": {
+   "Высота": "83 см",
+   "Ширина": "57 см",
+   "Обивка": "Велюр",
+   "Нагрузка": "до 150 кг",
+   "Цвета": "Бежевый, серый, графит"
+  }
+ },
+ {
+  "name": "Стул «Флорен»",
+  "category": "Стулья",
+  "photos": [
+   "images/floren/1.jpg",
+   "images/floren/2.jpg",
+   "images/floren/3.jpg",
+   "images/floren/4.jpg",
+   "images/floren/5.jpg",
+   "images/floren/6.jpg",
+   "images/floren/7.jpg",
+   "images/floren/8.jpg"
+  ],
+  "price": "Цена по запросу",
+  "desc": "Современный стул с эргономичной спинкой и мягким сиденьем. Усиленный металлокаркас, быстрая сборка.",
+  "specs": {
+   "Высота": "86 см",
+   "Высота сиденья": "43 см",
+   "Нагрузка": "до 150 кг",
+   "Цвета": "Бежевый, серый, графит"
+  }
+ },
+ {
+  "name": "Стул «Мюнхен»",
+  "category": "Стулья",
+  "photos": [
+   "images/munhen/1.jpg",
+   "images/munhen/2.jpg",
+   "images/munhen/3.jpg",
+   "images/munhen/4.jpg",
+   "images/munhen/5.jpg"
+  ],
+  "price": "Цена по запросу",
+  "desc": "Стул с вертикальной прострочкой и глубокой посадкой. Несколько вариантов цвета ножек.",
+  "specs": {
+   "Высота": "85 см",
+   "Высота сиденья": "43 см",
+   "Нагрузка": "до 150 кг"
+  }
+ },
+ {
+  "name": "Подстолье золотое",
+  "category": "Подстолья",
+  "photos": [
+   "images/base-gold/1.jpg",
+   "images/base-gold/2.jpg",
+   "images/base-gold/3.jpg",
+   "images/base-gold/4.jpg",
+   "images/base-gold/5.jpg"
+  ],
+  "price": "Цена по запросу",
+  "desc": "Золотая опора для стола на круглом основании. Подходит под столешницу для кафе и дома.",
+  "specs": {
+   "Высота": "72 см",
+   "Основание": "45 см",
+   "Верхняя плита": "25 см",
+   "Цвет": "Золото"
+  }
+ },
+ {
+  "name": "Ножки для стульев, золотые",
+  "category": "Ножки",
+  "photos": [
+   "images/legs-gold/1.jpg",
+   "images/legs-gold/2.jpg",
+   "images/legs-gold/3.jpg",
+   "images/legs-gold/4.jpg"
+  ],
+  "price": "Цена по запросу",
+  "desc": "Усиленный металлокаркас из холоднокатаной стали. Для замены и сборки стульев.",
+  "specs": {
+   "В комплекте": "4 шт., крепёж в комплекте",
+   "Высота": "43 см",
+   "Размер": "36 × 36 см",
+   "Труба": "32 мм, сталь 1,2 мм",
+   "Нагрузка": "до 150 кг",
+   "Цвет": "Золотой"
+  }
+ },
+ {
+  "name": "Ножки для стульев, белые",
+  "category": "Ножки",
+  "photos": [
+   "images/legs-white/1.jpg",
+   "images/legs-white/2.jpg",
+   "images/legs-white/3.jpg",
+   "images/legs-white/4.jpg",
+   "images/legs-white/5.jpg",
+   "images/legs-white/6.jpg"
+  ],
+  "price": "Цена по запросу",
+  "desc": "Усиленный металлокаркас из холоднокатаной стали. Для замены и сборки стульев.",
+  "specs": {
+   "В комплекте": "4 шт., крепёж в комплекте",
+   "Высота": "43 см",
+   "Размер": "36 × 36 см",
+   "Труба": "32 мм, сталь 1,2 мм",
+   "Нагрузка": "до 150 кг",
+   "Цвет": "Белый"
+  }
+ },
+ {
+  "name": "Ножки для стульев, чёрные",
+  "category": "Ножки",
+  "photos": [
+   "images/legs-black/1.jpg",
+   "images/legs-black/2.jpg",
+   "images/legs-black/3.jpg",
+   "images/legs-black/4.jpg",
+   "images/legs-black/5.jpg"
+  ],
+  "price": "Цена по запросу",
+  "desc": "Усиленный металлокаркас из холоднокатаной стали. Для замены и сборки стульев.",
+  "specs": {
+   "В комплекте": "4 шт., крепёж в комплекте",
+   "Высота": "43 см",
+   "Размер": "36 × 36 см",
+   "Труба": "32 мм, сталь 1,2 мм",
+   "Нагрузка": "до 150 кг",
+   "Цвет": "Чёрный"
+  }
+ }
+];
+/* ============================================== */
+
+const $ = s => document.querySelector(s);
+const grid = $("#grid"), tabs = $("#tabs"), dlg = $("#dlg");
+let current = "Все";
+
+function renderTabs(){
+  const cats = ["Все", ...(PRODUCTS.some(p => p.badge) ? ["Хиты продаж"] : []), ...new Set(PRODUCTS.map(p => p.category))];
+  tabs.innerHTML = "";
+  cats.forEach(c => {
+    const b = document.createElement("button");
+    b.className = "tab"; b.textContent = c;
+    b.setAttribute("aria-pressed", c === current);
+    b.onclick = () => { current = c; renderTabs(); renderGrid(); };
+    tabs.appendChild(b);
+  });
+}
+
+function renderGrid(){
+  grid.innerHTML = "";
+  PRODUCTS.filter(p => current === "Все" || (current === "Хиты продаж" ? p.badge : p.category === current)).forEach(p => {
+    const el = document.createElement("button");
+    el.className = "card";
+    el.innerHTML = `<div class="ph"><img src="${p.photos[0]}" alt="${p.name}" loading="lazy" onerror="this.style.opacity=0">${p.badge?`<span class="badge">${p.badge}</span>`:""}</div>
+      <h3>${p.name}</h3><div class="meta">${p.category}</div><div class="price">${p.price}</div>`;
+    el.onclick = () => openModal(p);
+    grid.appendChild(el);
+  });
+}
+
+function openModal(p){
+  const show = i => {
+    $("#mImg").src = p.photos[i]; $("#mImg").alt = p.name;
+    [...$("#mThumbs").children].forEach((b,k) => b.setAttribute("aria-current", k === i));
+  };
+  $("#mThumbs").innerHTML = "";
+  if (p.photos.length > 1) p.photos.forEach((src,i) => {
+    const b = document.createElement("button");
+    b.innerHTML = `<img src="${src}" alt="Фото ${i+1}">`;
+    b.onclick = () => show(i);
+    $("#mThumbs").appendChild(b);
+  });
+  show(0);
+  $("#mName").textContent = p.name;
+  $("#mDesc").textContent = p.desc;
+  $("#mPrice").textContent = p.price;
+  $("#mSpec").innerHTML = Object.entries(p.specs || {}).map(([k,v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join("");
+  $("#mOrder").href = `https://wa.me/${WHATSAPP}?text=` + encodeURIComponent(`Здравствуйте! Интересует: ${p.name}`);
+  dlg.showModal();
+}
+
+$("#close").onclick = () => dlg.close();
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+
+renderTabs(); renderGrid();
+</script>
+</body>
+</html>
