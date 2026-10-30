@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SEDIA — стулья, подстолья и столешницы от производителя</title>
+<meta name="description" content="Стулья, подстолья и столешницы для кафе, ресторанов и дома. Прямые поставки с фабрики.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --soft:#f3f4f4; --ink:#1c1f21; --muted:#6a7074; --line:#e3e5e6;
+  --accent:#2f4a43; --accent-ink:#ffffff; --r:8px;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#141616; --soft:#1e2121; --ink:#eef0f0; --muted:#9aa1a4; --line:#2c3032; --accent:#9fc2b6; --accent-ink:#10201b; }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:70px}
+body{font-family:'Onest',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;min-width:320px}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font-family:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 20px}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.brand{font-weight:700;font-size:18px;text-decoration:none;letter-spacing:.04em}
+nav{display:flex;gap:26px;font-size:15px}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.tel{font-weight:600;text-decoration:none;font-size:15px;white-space:nowrap}
+@media(max-width:760px){nav{display:none}.bar{height:54px}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;padding:64px 0}
+h1{font-size:clamp(30px,5vw,54px);line-height:1.1;letter-spacing:-.03em;font-weight:700;overflow-wrap:break-word}
+.lead{margin-top:18px;color:var(--muted);font-size:clamp(16px,2vw,18px);max-width:30em}
+.btns{display:flex;gap:10px;margin-top:28px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;border-radius:var(--r);font:600 15px 'Onest',sans-serif;text-decoration:none;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);cursor:pointer;text-align:center}
+.btn:hover{opacity:.9}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink);opacity:1}
+.hero-img{aspect-ratio:4/5;background:var(--soft);border-radius:var(--r);overflow:hidden}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+@media(max-width:860px){.hero{grid-template-columns:1fr;gap:28px;padding:28px 0 40px}.hero-img{aspect-ratio:1/1;order:-1}.btn{flex:1 1 100%}}
+
+section{padding:64px 0}
+h2{font-size:clamp(24px,3.4vw,34px);letter-spacing:-.02em;line-height:1.15}
+.sub{color:var(--muted);margin-top:8px;max-width:38em;font-size:15px}
+@media(max-width:760px){section{padding:44px 0}}
+
+/* catalog */
+.tabs{display:flex;gap:8px;margin:26px 0 28px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:2px 20px;margin-left:-20px;margin-right:-20px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;padding:9px 18px;border:1px solid var(--line);border-radius:99px;background:none;font:500 14px 'Onest',sans-serif;cursor:pointer;white-space:nowrap}
+.tab:hover{border-color:var(--ink)}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:34px 22px}
+@media(max-width:620px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 12px}}
+.card{min-width:0}
+.card .open{display:block;width:100%;background:none;border:0;padding:0;text-align:left;cursor:pointer}
+.ph{position:relative;aspect-ratio:1/1;background:var(--soft);border-radius:var(--r);overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.card:hover .ph img{transform:scale(1.03)}
+.badge{position:absolute;top:10px;left:10px;background:var(--accent);color:var(--accent-ink);font-size:12px;font-weight:600;padding:4px 10px;border-radius:99px}
+.cat{color:var(--muted);font-size:13px;margin-top:12px}
+.card h3{font-size:17px;font-weight:600;line-height:1.25}
+.col{color:var(--muted);font-size:14px}
+.price{font-weight:600;margin-top:2px;font-size:15px}
+.price.ask{font-weight:500;color:var(--muted)}
+.dots{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.dot{width:20px;height:20px;border-radius:50%;background:var(--c);border:1px solid var(--line);cursor:pointer;padding:0;position:relative}
+.dot[aria-current="true"]{box-shadow:0 0 0 2px var(--bg),0 0 0 3.5px var(--ink)}
+.dot::after{content:"";position:absolute;inset:-8px}
+.more{font-size:13px;color:var(--muted);align-self:center}
+@media(prefers-reduced-motion:reduce){.ph img{transition:none}}
+
+.soft{background:var(--soft)}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:34px}
+.cols h3{font-size:17px;margin-bottom:6px}
+.cols p{color:var(--muted);font-size:15px}
+@media(max-width:760px){.cols{grid-template-columns:1fr;gap:22px;margin-top:24px}}
+
+.contacts{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.contacts dl{display:grid;gap:16px}
+.contacts dt{color:var(--muted);font-size:14px}
+.contacts dd{font-size:20px;font-weight:600;overflow-wrap:anywhere}
+.contacts a{text-decoration:none;border-bottom:1px solid var(--line)}
+.contacts a:hover{border-color:var(--ink)}
+@media(max-width:760px){.contacts{grid-template-columns:1fr;gap:24px}.contacts dd{font-size:18px}}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:13px;line-height:1.5}
+
+/* bottom bar (mobile) */
+.mbar{display:none}
+@media(max-width:760px){
+  body{padding-bottom:calc(68px + env(safe-area-inset-bottom,0))}
+  .mbar{display:flex;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:9;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0));background:var(--bg);border-top:1px solid var(--line)}
+  .mbar .btn{flex:1;padding:12px 10px}
+}
+
+/* modal */
+dialog{margin:auto;border:0;border-radius:14px;padding:0;width:calc(100% - 32px);max-width:940px;max-height:calc(100dvh - 32px);overflow:auto;overscroll-behavior:contain;background:var(--bg);color:var(--ink)}
+dialog::backdrop{background:rgba(0,0,0,.55)}
+body.lock{overflow:hidden}
+.m{display:grid;grid-template-columns:1.1fr 1fr}
+.gal{position:relative;background:var(--soft);min-width:0}
+.main{aspect-ratio:4/5;overflow:hidden;touch-action:pan-y}
+.main img{width:100%;height:100%;object-fit:contain}
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:0;background:var(--bg);color:var(--ink);font-size:20px;cursor:pointer;box-shadow:0 1px 6px rgba(0,0,0,.25)}
+.nav.prev{left:10px}.nav.next{right:10px}
+.counter{position:absolute;left:10px;top:10px;background:var(--bg);color:var(--ink);font-size:12px;padding:2px 9px;border-radius:99px}
+.thumbs{display:flex;gap:8px;padding:10px;overflow-x:auto;scrollbar-width:none;background:var(--bg);border-top:1px solid var(--line)}
+.thumbs::-webkit-scrollbar{display:none}
+.thumbs button{flex:0 0 56px;width:56px;height:56px;padding:0;border:2px solid transparent;border-radius:6px;overflow:hidden;background:var(--soft);cursor:pointer}
+.thumbs button[aria-current="true"]{border-color:var(--accent)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.body{padding:28px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.m h3{font-size:26px;letter-spacing:-.02em;line-height:1.15}
+.m .cat{margin:0;font-size:14px}
+.m p{color:var(--muted);font-size:15px}
+.lbl{font-size:14px;color:var(--muted)}
+.lbl b{color:var(--ink);font-weight:600}
+.m .dots{margin-top:6px}
+.m .dot{width:30px;height:30px}
+.m table{border-collapse:collapse;font-size:14px;width:100%}
+.m td{padding:7px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.m td:first-child{color:var(--muted);padding-right:14px;white-space:nowrap}
+.mprice{font-size:22px;font-weight:700}
+.mprice.ask{font-size:18px;font-weight:600}
+.note{font-size:13px;color:var(--muted);background:var(--soft);padding:10px 12px;border-radius:var(--r)}
+.acts{display:flex;gap:8px;flex-wrap:wrap}
+.acts .btn{flex:1 1 140px}
+.close{position:absolute;top:10px;right:10px;z-index:2;border:0;background:var(--bg);color:var(--ink);width:38px;height:38px;border-radius:50%;font-size:22px;cursor:pointer;box-shadow:0 1px 6px rgba(0,0,0,.25)}
+@media(max-width:700px){
+  dialog{width:100%;max-width:100%;max-height:94dvh;margin:auto 0 0;border-radius:16px 16px 0 0}
+  .m{grid-template-columns:1fr}
+  .main{aspect-ratio:1/1}
+  .body{padding:18px 16px calc(22px + env(safe-area-inset-bottom,0))}
+  .m h3{font-size:22px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top">SEDIA</a>
+    <nav>
+      <a href="#catalog">Каталог</a>
+      <a href="#terms">Условия</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="tel" href="tel:+79179773837" data-tel="text">+7 (917) 977-38-37</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <h1>Стулья, подстолья и столешницы от производителя</h1>
+      <p class="lead">Мебель для кафе, ресторанов и дома. Работаем напрямую с фабрикой: понятные цены, стабильное качество, поставка в срок.</p>
+      <div class="btns">
+        <a class="btn" href="#catalog">Смотреть каталог</a>
+        <a class="btn ghost" href="#contacts">Связаться</a>
+      </div>
+    </div>
+    <div class="hero-img"><img src="hero.jpg" alt="Стул Nova бордовый на золотых ножках" onerror="this.remove()"></div>
+  </div>
+
+  <section id="catalog" style="padding-top:24px">
+    <div class="wrap">
+      <h2>Каталог</h2>
+      <p class="sub">Выберите цвет, нажмите на модель, чтобы увидеть фото и размеры. Цены, количество и условия поставки уточняйте по запросу.</p>
+      <div class="tabs" id="tabs"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="terms" class="soft">
+    <div class="wrap">
+      <h2>Условия работы</h2>
+      <div class="cols">
+        <div><h3>Прямое производство</h3><p>Мебель изготавливает наша фабрика. Без посредников, поэтому цена ниже рыночной.</p></div>
+        <div><h3>Опт и розница</h3><p>Продаём от одной штуки. При заказе партии действует скидка. Цены, количество и условия уточняйте по запросу.</p></div>
+        <div><h3>Доставка</h3><p>Отправляем по всей России транспортной компанией. Срок и стоимость рассчитаем после заявки.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts">
+    <div class="wrap contacts">
+      <div>
+        <h2>Контакты</h2>
+        <p class="sub">Напишите в WhatsApp или позвоните — ответим в течение рабочего дня. Пришлём каталог, образцы цветов и расчёт доставки.</p>
+      </div>
+      <dl>
+        <div><dt>Телефон</dt><dd><a href="tel:+79179773837" data-tel="text">+7 (917) 977-38-37</a></dd></div>
+        <div><dt>WhatsApp</dt><dd><a href="https://wa.me/79179773837" data-wa target="_blank" rel="noopener">Написать в WhatsApp</a></dd></div>
+        <div><dt>Почта</dt><dd><a href="mailto:yakunina163@bk.ru" data-mail>yakunina163@bk.ru</a></dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">ИП Якунина Полина Артемовна · ИНН 633010144980 · ОГРНИП 325632700072442</div>
+</footer>
+
+<div class="mbar">
+  <a class="btn ghost" href="tel:+79179773837" data-tel>Позвонить</a>
+  <a class="btn" href="https://wa.me/79179773837" data-wa target="_blank" rel="noopener">Написать</a>
+</div>
+
+<dialog id="dlg" aria-label="Карточка товара">
+  <button class="close" id="close" aria-label="Закрыть">×</button>
+  <div class="m">
+    <div class="gal">
+      <div class="main" id="main"><img id="mImg" alt=""></div>
+      <button class="nav prev" id="prev" aria-label="Предыдущее фото">‹</button>
+      <button class="nav next" id="next" aria-label="Следующее фото">›</button>
+      <span class="counter" id="counter"></span>
+      <div class="thumbs" id="mThumbs"></div>
+    </div>
+    <div class="body">
+      <div><div class="cat" id="mCat"></div><h3 id="mName"></h3></div>
+      <p id="mDesc"></p>
+      <div><div class="lbl" id="mColorLbl"></div><div class="dots" id="mDots"></div></div>
+      <table id="mSpec"></table>
+      <div class="mprice" id="mPrice"></div>
+      <div class="note">Цены, количество и условия поставки уточняйте по запросу.</div>
+      <div class="acts">
+        <a class="btn" id="mOrder" target="_blank" rel="noopener">Заказать в WhatsApp</a>
+        <a class="btn ghost" id="mCall" data-tel>Позвонить</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+/* ═══════════════ КОНТАКТЫ (меняйте только текст в кавычках) ═══════════════ */
+const PHONE_DISPLAY = "+7 (917) 977-38-37";   // как телефон выглядит на сайте
+const PHONE_DIGITS  = "79179773837";          // цифры без плюса и пробелов
+const EMAIL         = "yakunina163@bk.ru";
+
+/* ═══════════════ ТОВАРЫ ═══════════════
+   Как поставить цену: найдите (Ctrl+F / Cmd+F) слова  ЦЕНА ТУТ
+   Рядом стоит строка  price:"Цена по запросу",
+   Замените текст в кавычках, например:  price:"от 3 500 ₽",
+   Если у отдельного цвета цена другая, добавьте в строку этого цвета:  price:"4 200 ₽",
+   (например:  { color:"Black", hex:"#1b1b1d", legs:"Black", price:"4 200 ₽", photos:[...] }  )
+   Чтобы вернуть «по запросу»:  price:"Цена по запросу",
+*/
+const PRODUCTS = [
+  {
+    id:"nova", name:"Nova", category:"Стулья", badge:"Хит продаж",
+    price:"Цена по запросу",   // ⬅⬅⬅ ЦЕНА ТУТ ⬅⬅⬅  (Nova) впишите, например: "от 3 500 ₽"
+    desc:"Мягкий стёганый велюр, глубокая посадка и устойчивые металлические ножки. Ткань легко чистится и не боится когтей животных.",
+    specs:{ "Высота":"86 см", "Ширина":"44 см", "Обивка":"Велюр, антивандальная ткань", "Каркас сиденья":"Берёзовая фанера, пенополиуретан", "Ножки":"Сталь, труба 32 мм", "Нагрузка":"до 150 кг" },
+    variants:[
+      { color:"Burgundy", hex:"#6e1f36", legs:"Gold", photos:["nova/burgundy/1.jpg", "nova/burgundy/2.jpg", "nova/burgundy/3.jpg", "nova/burgundy/4.jpg", "nova/burgundy/5.jpg"] },
+      { color:"Grey", hex:"#a69e9b", legs:"Gold", photos:["nova/grey/1.jpg", "nova/grey/2.jpg", "nova/grey/3.jpg", "nova/grey/4.jpg", "nova/grey/5.jpg"] },
+      { color:"Beige", hex:"#e7dfcf", legs:"Black", photos:["nova/beige/1.jpg", "nova/beige/2.jpg", "nova/beige/3.jpg", "nova/beige/4.jpg", "nova/beige/5.jpg"] },
+      { color:"Orange", hex:"#d0861b", legs:"White", photos:["nova/orange/1.jpg", "nova/orange/2.jpg", "nova/orange/3.jpg", "nova/orange/4.jpg", "nova/orange/5.jpg"] },
+      { color:"Green", hex:"#2f6e53", legs:"Black", photos:["nova/green/1.jpg", "nova/green/2.jpg", "nova/green/3.jpg", "nova/green/4.jpg", "nova/green/5.jpg"] },
+    ]
+  },
+  {
+    id:"block", name:"Block", category:"Стулья",
+    price:"Цена по запросу",   // ⬅⬅⬅ ЦЕНА ТУТ ⬅⬅⬅  (Block) впишите, например: "от 3 500 ₽"
+    desc:"Стул с объёмной стёжкой «квадратами» и мягкой глубокой посадкой. Много цветов обивки и три цвета ножек.",
+    specs:{ "Высота":"86 см", "Ширина":"44 см", "Обивка":"Велюр", "Каркас сиденья":"Берёзовая фанера, пенополиуретан", "Ножки":"Сталь, труба 32 мм" },
+    variants:[
+      { color:"Crimson", hex:"#b11447", legs:"White", photos:["block/crimson/1.jpg", "block/crimson/2.jpg", "block/crimson/3.jpg", "block/crimson/4.jpg", "block/crimson/5.jpg"] },
+      { color:"Black", hex:"#1b1b1d", legs:"Black", photos:["block/black/1.jpg", "block/black/2.jpg", "block/black/3.jpg", "block/black/4.jpg", "block/black/5.jpg"] },
+      { color:"Brown", hex:"#7d5a4b", legs:"White", photos:["block/brown/1.jpg", "block/brown/2.jpg", "block/brown/3.jpg", "block/brown/4.jpg", "block/brown/5.jpg"] },
+      { color:"Orange", hex:"#d1561d", legs:"White", photos:["block/orange/1.jpg", "block/orange/2.jpg", "block/orange/3.jpg", "block/orange/4.jpg", "block/orange/5.jpg"] },
+      { color:"Blue", hex:"#1f5ca8", legs:"Black", photos:["block/blue/1.jpg", "block/blue/2.jpg", "block/blue/3.jpg", "block/blue/4.jpg", "block/blue/5.jpg"] },
+      { color:"Beige", hex:"#e3d6bf", legs:"White", photos:["block/beige-white/1.jpg", "block/beige-white/2.jpg", "block/beige-white/3.jpg", "block/beige-white/4.jpg", "block/beige-white/5.jpg"] },
+      { color:"Beige", hex:"#e3d6bf", legs:"Black", photos:["block/beige-black/1.jpg", "block/beige-black/2.jpg", "block/beige-black/3.jpg", "block/beige-black/4.jpg", "block/beige-black/5.jpg"] },
+      { color:"Graphite", hex:"#4a4b50", legs:"Black", photos:["block/graphite/1.jpg", "block/graphite/2.jpg", "block/graphite/3.jpg", "block/graphite/4.jpg", "block/graphite/5.jpg"] },
+      { color:"Chocolate", hex:"#4a3b36", legs:"Black", photos:["block/chocolate/1.jpg", "block/chocolate/2.jpg", "block/chocolate/3.jpg", "block/chocolate/4.jpg", "block/chocolate/5.jpg"] },
+      { color:"Grey", hex:"#85858a", legs:"Black", photos:["block/grey/1.jpg", "block/grey/2.jpg", "block/grey/3.jpg", "block/grey/4.jpg", "block/grey/5.jpg"] },
+      { color:"Sky", hex:"#a3c1c9", legs:"Gold", photos:["block/sky/1.jpg", "block/sky/2.jpg", "block/sky/3.jpg", "block/sky/4.jpg", "block/sky/5.jpg"] },
+      { color:"Lilac", hex:"#8d6aa3", legs:"Gold", photos:["block/lilac/1.jpg", "block/lilac/2.jpg", "block/lilac/3.jpg", "block/lilac/4.jpg", "block/lilac/5.jpg"] },
+      { color:"Cream", hex:"#eee6d3", legs:"Gold", photos:["block/cream/1.jpg", "block/cream/2.jpg", "block/cream/3.jpg", "block/cream/4.jpg"] },
+    ]
+  },
+  {
+    id:"rhomb", name:"Rhomb", category:"Стулья",
+    price:"Цена по запросу",   // ⬅⬅⬅ ЦЕНА ТУТ ⬅⬅⬅  (Rhomb) впишите, например: "от 3 500 ₽"
+    desc:"Стул со стёжкой «ромбом» и удобной спинкой. Чёрный металлокаркас, быстрая сборка.",
+    specs:{ "Высота":"86 см", "Высота сиденья":"43 см", "Обивка":"Велюр, антивандальная ткань", "Ножки":"Сталь, труба 32 мм", "Нагрузка":"до 150 кг" },
+    variants:[
+      { color:"Beige", hex:"#e1d3bf", legs:"Black", photos:["rhomb/beige/1.jpg", "rhomb/beige/2.jpg", "rhomb/beige/3.jpg", "rhomb/beige/4.jpg", "rhomb/beige/5.jpg"] },
+      { color:"Graphite", hex:"#45464b", legs:"Black", photos:["rhomb/graphite/1.jpg", "rhomb/graphite/2.jpg", "rhomb/graphite/3.jpg", "rhomb/graphite/4.jpg", "rhomb/graphite/5.jpg"] },
+      { color:"Grey", hex:"#8c8c8f", legs:"Black", photos:["rhomb/grey/1.jpg", "rhomb/grey/2.jpg", "rhomb/grey/3.jpg", "rhomb/grey/4.jpg", "rhomb/grey/5.jpg"] },
+    ]
+  },
+  {
+    id:"grid", name:"Grid", category:"Стулья",
+    price:"Цена по запросу",   // ⬅⬅⬅ ЦЕНА ТУТ ⬅⬅⬅  (Grid) впишите, например: "от 3 500 ₽"
+    desc:"Компактный стул с мягкой стёжкой квадратами. Подходит для кухни и небольших кафе.",
+    specs:{ "Высота":"90 см", "Обивка":"Велюр, антивандальная ткань", "Ножки":"Сталь, труба 32 мм", "Нагрузка":"до 150 кг" },
+    variants:[
+      { color:"Greige", hex:"#d5d0c9", legs:"Black", photos:["grid/greige/1.jpg", "grid/greige/2.jpg", "grid/greige/3.jpg", "grid/greige/4.jpg", "grid/greige/5.jpg"] },
+    ]
+  },
+  {
+    id:"flow", name:"Flow", category:"Стулья",
+    price:"Цена по запросу",   // ⬅⬅⬅ ЦЕНА ТУТ ⬅⬅⬅  (Flow) впишите, например: "от 3 500 ₽"
+    desc:"Эргономичная спинка с вертикальной строчкой и мягкая подушка сиденья. Усиленный металлокаркас.",
+    specs:{ "Высота":"86 см", "Высота сиденья":"43 см", "Ширина сиденья":"50 см", "Обивка":"Велюр, антивандальная ткань", "Ножки":"Сталь, труба 32 мм", "Нагрузка":"до 150 кг" },
+    variants:[
+      { color:"Graphite", hex:"#47484c", legs:"Black", photos:["flow/graphite/1.jpg", "flow/graphite/2.jpg", "flow/graphite/3.jpg", "flow/graphite/4.jpg", "flow/graphite/5.jpg"] },
+      { color:"Beige", hex:"#ddc9b0", legs:"Black", photos:["flow/beige/1.jpg", "flow/beige/2.jpg", "flow/beige/3.jpg", "flow/beige/4.jpg", "flow/beige/5.jpg"] },
+      { color:"Grey", hex:"#7b7b7e", legs:"Black", photos:["flow/grey/1.jpg", "flow/grey/2.jpg", "flow/grey/3.jpg", "flow/grey/4.jpg", "flow/grey/5.jpg"] },
+    ]
+  },
+  {
+    id:"line", name:"Line", category:"Стулья",
+    price:"Цена по запросу",   // ⬅⬅⬅ ЦЕНА ТУТ ⬅⬅⬅  (Line) впишите, например: "от 3 500 ₽"
+    desc:"Стул с вертикальной прострочкой и глубокой посадкой. Варианты на чёрных, белых и золотых ножках.",
+    specs:{ "Высота":"86 см", "Высота сиденья":"43 см", "Ширина сиденья":"50 см", "Обивка":"Велюр, антивандальная ткань", "Ножки":"Сталь, труба 32 мм", "Нагрузка":"до 150 кг" },
+    variants:[
+      { color:"Beige", hex:"#e4d2bd", legs:"Gold", photos:["line/beige/1.jpg", "line/beige/2.jpg", "line/beige/3.jpg", "line/beige/4.jpg", "line/beige/5.jpg"] },
+      { color:"Brown", hex:"#6b5044", legs:"Black", photos:["line/brown/1.jpg", "line/brown/2.jpg", "line/brown/3.jpg", "line/brown/4.jpg", "line/brown/5.jpg"] },
+      { color:"Graphite", hex:"#4a4b4f", legs:"Black", photos:["line/graphite/1.jpg", "line/graphite/2.jpg", "line/graphite/3.jpg", "line/graphite/4.jpg", "line/graphite/5.jpg"] },
+      { color:"Grey", hex:"#8d8c90", legs:"Black", photos:["line/grey-black/1.jpg", "line/grey-black/2.jpg", "line/grey-black/3.jpg", "line/grey-black/4.jpg", "line/grey-black/5.jpg"] },
+      { color:"Slate", hex:"#3b4552", legs:"White", photos:["line/navy-white/1.jpg", "line/navy-white/2.jpg", "line/navy-white/3.jpg", "line/navy-white/4.jpg", "line/navy-white/5.jpg"] },
+      { color:"Grey", hex:"#8b8b8d", legs:"White", photos:["line/grey-white/1.jpg", "line/grey-white/2.jpg", "line/grey-white/3.jpg", "line/grey-white/4.jpg"] },
+    ]
+  },
+  {
+    id:"shell", name:"Shell", category:"Стулья",
+    price:"Цена по запросу",   // ⬅⬅⬅ ЦЕНА ТУТ ⬅⬅⬅  (Shell) впишите, например: "от 3 500 ₽"
+    desc:"Стул-кресло с округлой спинкой-раковиной и мягким сиденьем.",
+    specs:{ "Высота":"83 см", "Ширина":"57 см", "Высота сиденья":"43 см", "Обивка":"Велюр, антивандальная ткань", "Ножки":"Сталь, труба 32 мм", "Нагрузка":"до 150 кг" },
+    variants:[
+      { color:"Beige", hex:"#e4d2bd", legs:"Black", photos:["shell/beige/1.jpg", "shell/beige/2.jpg", "shell/beige/3.jpg", "shell/beige/4.jpg"] },
+      { color:"Grey", hex:"#84848a", legs:"Black", photos:["shell/grey/1.jpg", "shell/grey/2.jpg", "shell/grey/3.jpg", "shell/grey/4.jpg", "shell/grey/5.jpg"] },
+      { color:"Graphite", hex:"#4c4d52", legs:"Black", photos:["shell/graphite/1.jpg", "shell/graphite/2.jpg", "shell/graphite/3.jpg", "shell/graphite/4.jpg", "shell/graphite/5.jpg"] },
+    ]
+  },
+  {
+    id:"arc", name:"Arc", category:"Стулья",
+    price:"Цена по запросу",   // ⬅⬅⬅ ЦЕНА ТУТ ⬅⬅⬅  (Arc) впишите, например: "от 3 500 ₽"
+    desc:"Мягкое кресло с высокой спинкой-раковиной и подлокотниками. Для кафе, ресторанов и дома.",
+    specs:{ "Высота":"83 см", "Ширина":"60 см", "Высота сиденья":"43 см", "Обивка":"Велюр, антивандальная ткань", "Ножки":"Сталь, труба 32 мм", "Нагрузка":"до 150 кг" },
+    variants:[
+      { color:"Beige", hex:"#e3d0ba", legs:"Black", photos:["arc/beige/1.jpg", "arc/beige/2.jpg", "arc/beige/3.jpg", "arc/beige/4.jpg", "arc/beige/5.jpg"] },
+      { color:"Graphite", hex:"#47474b", legs:"Black", photos:["arc/graphite/1.jpg", "arc/graphite/2.jpg", "arc/graphite/3.jpg", "arc/graphite/4.jpg", "arc/graphite/5.jpg"] },
+      { color:"Graphite", hex:"#47474b", legs:"Gold", photos:["arc/graphite-gold/1.jpg", "arc/graphite-gold/2.jpg", "arc/graphite-gold/3.jpg", "arc/graphite-gold/4.jpg", "arc/graphite-gold/5.jpg"] },
+      { color:"Grey", hex:"#85858a", legs:"Black", photos:["arc/grey/1.jpg", "arc/grey/2.jpg", "arc/grey/3.jpg", "arc/grey/4.jpg", "arc/grey/5.jpg"] },
+    ]
+  },
+  {
+    id:"tulip", name:"Tulip", category:"Подстолья",
+    price:"Цена по запросу",   // ⬅⬅⬅ ЦЕНА ТУТ ⬅⬅⬅  (Tulip) впишите, например: "от 3 500 ₽"
+    desc:"Белое подстолье «тюльпан» на круглом основании. Классическая форма для столов в кафе и дома.",
+    specs:{ "Высота":"73,5 см", "Основание":"Ø 49,5 см", "Верхняя плита":"25 × 25 см", "Труба":"Ø 5 см", "Материал":"Сталь", "Столешница":"до 80 × 80 см", "Сборка":"Поставляется в разобранном виде, сборка простая" },
+    variants:[
+      { color:"White", hex:"#f2f2f2", legs:"", photos:["tulip/white/1.jpg", "tulip/white/2.jpg", "tulip/white/3.jpg"] },
+    ]
+  },
+  {
+    id:"square", name:"Square", category:"Подстолья",
+    price:"Цена по запросу",   // ⬅⬅⬅ ЦЕНА ТУТ ⬅⬅⬅  (Square) впишите, например: "от 3 500 ₽"
+    desc:"Подстолье на квадратном основании: чёрная стойка и золотая вставка. Нержавеющая сталь.",
+    specs:{ "Высота":"71,6 см", "Основание":"45,1 × 45,1 см", "Верхняя плита":"24 × 24 см", "Труба":"Ø 7,5 см", "Материал":"Нержавеющая сталь", "Столешница":"до 80 × 80 см", "Сборка":"Поставляется в разобранном виде, сборка простая" },
+    variants:[
+      { color:"Gold", hex:"#c9a24a", legs:"", photos:["square/gold/1.jpg", "square/gold/2.jpg", "square/gold/3.jpg", "square/gold/4.jpg"] },
+    ]
+  },
+  {
+    id:"duo", name:"Duo", category:"Подстолья",
+    price:"Цена по запросу",   // ⬅⬅⬅ ЦЕНА ТУТ ⬅⬅⬅  (Duo) впишите, например: "от 3 500 ₽"
+    desc:"Круглое подстолье, сочетающее чёрную стойку и золотое основание. Нержавеющая сталь.",
+    specs:{ "Высота":"71,5 см", "Основание":"Ø 45,2 см", "Верхняя плита":"24 × 24 см", "Труба":"Ø 7,6 см", "Материал":"Нержавеющая сталь", "Столешница":"до 70 × 70 см", "Сборка":"Поставляется в разобранном виде, сборка простая" },
+    variants:[
+      { color:"Gold", hex:"#c9a24a", legs:"", photos:["duo/gold/1.jpg", "duo/gold/2.jpg", "duo/gold/3.jpg"] },
+    ]
+  },
+  {
+    id:"classic", name:"Classic", category:"Подстолья",
+    price:"Цена по запросу",   // ⬅⬅⬅ ЦЕНА ТУТ ⬅⬅⬅  (Classic) впишите, например: "от 3 500 ₽"
+    desc:"Классическое круглое подстолье в трёх цветах. Устойчивое основание, подходит для небольших столов.",
+    specs:{ "Высота":"72 см", "Основание":"Ø 44–45 см", "Верхняя плита":"25 × 25 см", "Труба":"Ø 6 см", "Материал":"Сталь", "Столешница":"до 70 × 70 см", "Сборка":"Поставляется в разобранном виде, сборка простая" },
+    variants:[
+      { color:"Gold", hex:"#c9a24a", legs:"", photos:["classic/gold/1.jpg", "classic/gold/2.jpg", "classic/gold/3.jpg", "classic/gold/4.jpg", "classic/gold/5.jpg"] },
+      { color:"Silver", hex:"#c4c7ca", legs:"", photos:["classic/silver/1.jpg", "classic/silver/2.jpg"] },
+      { color:"Black", hex:"#202020", legs:"", photos:["classic/black/1.jpg", "classic/black/2.jpg", "classic/black/3.jpg"] },
+    ]
+  },
+  {
+    id:"ring", name:"Ring", category:"Подстолья",
+    price:"Цена по запросу",   // ⬅⬅⬅ ЦЕНА ТУТ ⬅⬅⬅  (Ring) впишите, например: "от 3 500 ₽"
+    desc:"Подстолье с декоративным кольцом в золотом цвете. Нержавеющая сталь, акцентная форма.",
+    specs:{ "Высота":"71 см", "Основание":"Ø 45,3 см", "Верхняя плита":"24 × 24 см", "Материал":"Нержавеющая сталь", "Столешница":"до 70 × 70 см", "Сборка":"Поставляется в разобранном виде, сборка простая" },
+    variants:[
+      { color:"Gold", hex:"#c9a24a", legs:"", photos:["ring/gold/1.jpg", "ring/gold/2.jpg", "ring/gold/3.jpg", "ring/gold/4.jpg", "ring/gold/5.jpg"] },
+    ]
+  },
+  {
+    id:"top", name:"Top", category:"Столешницы",
+    price:"Цена по запросу",   // ⬅⬅⬅ ЦЕНА ТУТ ⬅⬅⬅  (Top) впишите, например: "от 3 500 ₽"
+    desc:"Столешница 600 × 600 мм из влагостойкого ЛДСП с защитным покрытием. Пять декоров.",
+    specs:{ "Размер":"60 × 60 см", "Толщина":"38 мм", "Материал":"ЛДСП, влагостойкая", "Кромка":"ПВХ", "Покрытие":"Corund Protection" },
+    variants:[
+      { color:"Oak", hex:"#b98a58", legs:"", photos:["top/oak/1.jpg", "top/oak/2.jpg", "top/oak/3.jpg"] },
+      { color:"Concrete", hex:"#c9c9c7", legs:"", photos:["top/concrete/1.jpg", "top/concrete/2.jpg", "top/concrete/3.jpg", "top/concrete/4.jpg"] },
+      { color:"Dark Concrete", hex:"#4a4c4f", legs:"", photos:["top/dark-concrete/1.jpg", "top/dark-concrete/2.jpg", "top/dark-concrete/3.jpg", "top/dark-concrete/4.jpg", "top/dark-concrete/5.jpg"] },
+      { color:"Marble", hex:"#e8e6e2", legs:"", photos:["top/marble/1.jpg", "top/marble/2.jpg", "top/marble/3.jpg", "top/marble/4.jpg", "top/marble/5.jpg"] },
+      { color:"Black", hex:"#1f1d1f", legs:"", photos:["top/black/1.jpg", "top/black/2.jpg", "top/black/3.jpg", "top/black/4.jpg", "top/black/5.jpg"] },
+    ]
+  },
+  {
+    id:"frame", name:"Frame", category:"Ножки",
+    price:"Цена по запросу",   // ⬅⬅⬅ ЦЕНА ТУТ ⬅⬅⬅  (Frame) впишите, например: "от 3 500 ₽"
+    desc:"Комплект усиленных металлических ножек для стульев. Качественная сварка, крепёж в комплекте.",
+    specs:{ "В комплекте":"4 шт., крепёж в комплекте", "Высота":"43 см", "Размер":"36 × 36 см", "Труба":"Ø 32 мм, стенка 1,2 мм", "Материал":"Сталь холодного проката", "Нагрузка":"до 150 кг" },
+    variants:[
+      { color:"Gold", hex:"#c9a24a", legs:"", photos:["frame/gold/1.jpg", "frame/gold/2.jpg", "frame/gold/3.jpg", "frame/gold/4.jpg"] },
+      { color:"White", hex:"#f2f2f2", legs:"", photos:["frame/white/1.jpg", "frame/white/2.jpg", "frame/white/3.jpg", "frame/white/4.jpg", "frame/white/5.jpg"] },
+      { color:"Black", hex:"#202020", legs:"", photos:["frame/black/1.jpg", "frame/black/2.jpg", "frame/black/3.jpg", "frame/black/4.jpg", "frame/black/5.jpg"] },
+    ]
+  },
+];
+/* ══════════════════════════════════════ */
+
+const $ = s => document.querySelector(s);
+const grid = $("#grid"), tabs = $("#tabs"), dlg = $("#dlg");
+const ASK = "Цена по запросу";
+const isPrice = p => p && p.trim() && !/по запросу/i.test(p);
+
+/* ссылки на телефон / WhatsApp / почту собираются из констант выше */
+document.querySelectorAll("[data-tel]").forEach(a => { a.href = "tel:+" + PHONE_DIGITS; if (a.dataset.tel === "text") a.textContent = PHONE_DISPLAY; });
+document.querySelectorAll("[data-wa]").forEach(a => { a.href = "https://wa.me/" + PHONE_DIGITS; });
+document.querySelectorAll("[data-mail]").forEach(a => { a.href = "mailto:" + EMAIL; a.textContent = EMAIL; });
+
+const priceOf = (p, v) => (v && v.price) || p.price || ASK;
+const label = v => v.color + (v.legs ? " · " + v.legs + " legs" : "");
+
+let current = "Все";
+function cats(){
+  const list = ["Все"];
+  if (PRODUCTS.some(p => p.badge)) list.push("Хиты продаж");
+  PRODUCTS.forEach(p => { if (!list.includes(p.category)) list.push(p.category); });
+  return list;
+}
+function renderTabs(){
+  tabs.innerHTML = "";
+  cats().forEach(c => {
+    const b = document.createElement("button");
+    b.className = "tab"; b.textContent = c;
+    b.setAttribute("aria-pressed", c === current);
+    b.onclick = () => { current = c; renderTabs(); renderGrid(); };
+    tabs.appendChild(b);
+  });
+}
+
+function renderGrid(){
+  grid.innerHTML = "";
+  PRODUCTS.filter(p => current === "Все" || (current === "Хиты продаж" ? p.badge : p.category === current)).forEach(p => {
+    p._i = p._i || 0;
+    const el = document.createElement("article");
+    el.className = "card";
+    const v = () => p.variants[p._i];
+    el.innerHTML = `<button class="open" aria-label="Открыть: ${p.name}">
+        <div class="ph"><img loading="lazy" alt="${p.name}">${p.badge ? `<span class="badge">${p.badge}</span>` : ""}</div>
+        <div class="cat">${p.category}</div><h3>${p.name}</h3><div class="col"></div><div class="price"></div></button>
+      <div class="dots"></div>`;
+    const img = el.querySelector("img"), col = el.querySelector(".col"), pr = el.querySelector(".price"), dots = el.querySelector(".dots");
+    const paint = () => {
+      img.src = v().photos[0]; img.alt = p.name + " " + v().color;
+      col.textContent = label(v());
+      const t = priceOf(p, v()); pr.textContent = t; pr.className = "price" + (isPrice(t) ? "" : " ask");
+      [...dots.children].forEach((d,i) => d.setAttribute("aria-current", i === p._i));
+    };
+    if (p.variants.length > 1) p.variants.forEach((vv,i) => {
+      const d = document.createElement("button");
+      d.className = "dot"; d.style.setProperty("--c", vv.hex); d.title = label(vv); d.setAttribute("aria-label", label(vv));
+      d.onclick = () => { p._i = i; paint(); };
+      dots.appendChild(d);
+    }); else dots.remove();
+    el.querySelector(".open").onclick = () => openModal(p);
+    paint();
+    grid.appendChild(el);
+  });
+}
+
+/* ---- карточка товара ---- */
+let cp, cv = 0, ci = 0;
+function openModal(p){ cp = p; cv = p._i || 0; ci = 0; fillModal(); dlg.showModal(); document.body.classList.add("lock"); dlg.scrollTop = 0; }
+function fillModal(){
+  const v = cp.variants[cv];
+  $("#mCat").textContent = cp.category + (cp.badge ? " · " + cp.badge : "");
+  $("#mName").textContent = cp.name + " — " + v.color;
+  $("#mDesc").textContent = cp.desc;
+  $("#mColorLbl").innerHTML = "Цвет: <b>" + label(v) + "</b>";
+  const dots = $("#mDots"); dots.innerHTML = "";
+  if (cp.variants.length > 1) cp.variants.forEach((vv,i) => {
+    const d = document.createElement("button");
+    d.className = "dot"; d.style.setProperty("--c", vv.hex); d.title = label(vv); d.setAttribute("aria-label", label(vv));
+    d.setAttribute("aria-current", i === cv);
+    d.onclick = () => { cv = i; cp._i = i; ci = 0; fillModal(); renderGrid(); };
+    dots.appendChild(d);
+  });
+  const rows = Object.entries(cp.specs || {});
+  if (v.legs) rows.splice(0, 0, ["Цвет ножек", v.legs]);
+  $("#mSpec").innerHTML = rows.map(([k,x]) => `<tr><td>${k}</td><td>${x}</td></tr>`).join("");
+  const t = priceOf(cp, v);
+  $("#mPrice").textContent = t; $("#mPrice").className = "mprice" + (isPrice(t) ? "" : " ask");
+  $("#mOrder").href = "https://wa.me/" + PHONE_DIGITS + "?text=" + encodeURIComponent(`Здравствуйте! Интересует: ${cp.name}, ${label(v)}. Подскажите цену и условия.`);
+  $("#mCall").href = "tel:+" + PHONE_DIGITS;
+  const th = $("#mThumbs"); th.innerHTML = "";
+  v.photos.forEach((src,i) => {
+    const b = document.createElement("button");
+    b.innerHTML = `<img src="${src}" alt="Фото ${i+1}" loading="lazy">`;
+    b.onclick = () => { ci = i; showPhoto(); };
+    th.appendChild(b);
+  });
+  const multi = v.photos.length > 1;
+  $("#prev").hidden = $("#next").hidden = !multi; th.hidden = !multi;
+  showPhoto();
+}
+function showPhoto(){
+  const v = cp.variants[cv];
+  $("#mImg").src = v.photos[ci]; $("#mImg").alt = cp.name + " " + v.color;
+  $("#counter").textContent = (ci+1) + " / " + v.photos.length;
+  [...$("#mThumbs").children].forEach((b,i) => b.setAttribute("aria-current", i === ci));
+}
+const step = d => { const n = cp.variants[cv].photos.length; ci = (ci + d + n) % n; showPhoto(); };
+$("#prev").onclick = () => step(-1);
+$("#next").onclick = () => step(1);
+document.addEventListener("keydown", e => { if (!dlg.open) return; if (e.key === "ArrowLeft") step(-1); if (e.key === "ArrowRight") step(1); });
+let sx = null;
+$("#main").addEventListener("touchstart", e => { sx = e.touches[0].clientX; }, {passive:true});
+$("#main").addEventListener("touchend", e => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1); sx = null; });
+$("#close").onclick = () => dlg.close();
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+dlg.addEventListener("close", () => document.body.classList.remove("lock"));
+
+renderTabs(); renderGrid();
+</script>
+</body>
+</html>
